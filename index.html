@@ -5,11 +5,24 @@
 </head>
 <body ng-app = "myApp">
 		
-	<section ng-controller = "simplecontroller">
-		<h1>Hello {{name}}!!</h1>	
-	</section>	
+	<div ui-view></div>
 
 	<script type="text/javascript" src = "/bower_components/angular/angular.min.js"></script>
+	<script type="text/javascript" src = "/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+	<script type="text/javascript" src = "/js/constant.js"></script>
+	<script type="text/javascript" src = "/js/services/app.services.js"></script>
+	<script type="text/javascript" src = "/js/services/user.service.js"></script>
+	<script type="text/javascript" src = "/js/services/storage.service.js"></script>
+	<script type="text/javascript" src = "/js/signup/signup.module.js"></script>
+	<script type="text/javascript" src = "/js/signup/signup.controller.js"></script>
+	<script type="text/javascript" src = "/js/login/login.module.js"></script>
+	<script type="text/javascript" src = "/js/login/login.controller.js"></script>
+	<script type="text/javascript" src = "/js/home/home.module.js"></script>
+	<script type="text/javascript" src = "/js/home/home.controller.js"></script>
+	<script type="text/javascript" src = "/js/factory/app.factory.js"></script>
+	<script type="text/javascript" src = "/js/factory/authentication.factory.js"></script>
+	<script type="text/javascript" src = "/js/factory/authinterceptor.factory.js"></script>
 	<script type="text/javascript" src = "/js/app.js"></script>
 </body>
 </html>

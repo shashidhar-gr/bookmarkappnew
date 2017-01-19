@@ -16,19 +16,23 @@ app.get('/',function(req,res){
    res.sendFile('index.html',{ root: __dirname });
 });
 
+app.post('/signup', function(req, res) {
+	return res.status(200).json({ success: true, message: req.body.username});
+});
+
 app.post('/profile', function(req, res) {
-	return res.status(200).json({ success: true, message: req.user});
+	return res.status(200).json({ success: true, message: "Welcome buddy!!"});
 });
 
 app.post('/login', function(req, res) {
 	if(req.body.username === "shashidhar" && req.body.password === "password") {
 		var token = jsonwebtoken.sign({username: req.body.username}, "shashidhar", {expiresIn: 60});
-		return res.status(200).json({ success: true, message: "Authenticated successfully!!", token: token});
+		return res.status(200).json({ success: true, message: "Authenticated successfully!!", username: req.body.username, token: token});
 	}
 	return res.status(400).json({ success: false, message: "Authentication failed"});
 });
 
-app.listen(3000, function() {
+app.listen(8080, function() {
 	console.log("server listening on port 3000.");
 });
 

@@ -1,0 +1,1 @@
+var appfactory = angular.module('app.factory', []);
