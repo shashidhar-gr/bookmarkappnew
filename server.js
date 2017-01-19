@@ -3,13 +3,17 @@ var bodyparser = require('body-parser');
 var expressJwt = require('express-jwt');
 var jsonwebtoken = require('jsonwebtoken');
 var app = express();
+
 app.use(bodyparser.json());
-app.use(express.static('public'));
 
-//app.use(expressJwt({secret: "shashidhar"}).unless({path: ['/', '/signup', '/login']}))
+//Static files.
+app.use(express.static(__dirname+'/public'));
+app.use('/bower_components', express.static(__dirname+'/bower_components'));
 
-app.get('/', function(req, res) {
-	res.sendFile(__dirname+'/index.html');
+app.use(expressJwt({secret: "shashidhar"}).unless({path: ['/', '/signup', '/login']}))
+
+app.get('/',function(req,res){
+   res.sendFile('index.html',{ root: __dirname });
 });
 
 app.post('/profile', function(req, res) {
