@@ -6,7 +6,7 @@ var app = express();
 app.use(bodyparser.json());
 app.use(express.static('public'));
 
-app.use(expressJwt({secret: "shashidhar"}).unless({path: ['/', '/signup', '/login']}))
+//app.use(expressJwt({secret: "shashidhar"}).unless({path: ['/', '/signup', '/login']}))
 
 app.get('/', function(req, res) {
 	res.sendFile(__dirname+'/index.html');
